@@ -17,7 +17,7 @@ end
 
 function HSNotice.PrintNotice()
 	local fulltext = file.Read("hsnotice/" .. hsn_noticefile, "DATA")
-	local splited = string.Explode("\n", fulltext)
+	local splited = string.Explode("\r?\n", fulltext, true)
 	local broadcasted = table.Random(splited)
 	net.Start("hsnotice")
 		net.WriteString(broadcasted)
